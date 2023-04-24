@@ -1,9 +1,9 @@
-Porting Advisor for Graviton
+Porting Advisor for Ampere Processors
 =============================
 
-This is a fork of [Porting advisor](https://github.com/arm-hpc/porting-advisor), an open source project by the ARM High Performance Computing group. Originally, it was coded as a Python module that analyzed some known incompatibilities for C and Fortran code.
+This is a fork of [Porting advisor for Graviton](https://github.com/aws/porting-advisor-for-graviton), an open source project from AWS on basis of the ARM High Performance Computing group's [Porting advisor](https://github.com/arm-hpc/porting-advisor). Originally, it was coded as a Python module that analyzed some known incompatibilities for C and Fortran code.
 
- It is a command line tool that analyzes source code for known code patterns and dependency libraries. It then generates a report with any incompatibilities with our Graviton processors. This tool provides suggestions of minimal required and/or recommended versions to run on Graviton instances for both language runtime and dependency libraries. It can run on non-ARM based machines (no Graviton processor needed). This tool does not work on binaries, just source code. It does not make any code modifications, it doesn’t make API level recommendations, nor does it send data back to AWS.
+ It is a command line tool that analyzes source code for known code patterns and dependency libraries. It then generates a report with any incompatibilities with our Ampere processors. This tool provides suggestions of minimal required and/or recommended versions to run on Ampere processors for both language runtime and dependency libraries. It can run on non-ARM based machines (no Ampere processor needed). This tool does not work on binaries, just source code. It does not make any code modifications, it doesn't make API level recommendations, nor does it send data to internet.
 
  This tool scans all files in a source tree, regardless of whether they are included by the build system or not. As such it may erroneously report issues in files that appear in the source tree but are excluded by the build system. Currently, the tool supports the following languages/dependencies:
 
@@ -33,10 +33,10 @@ This is a fork of [Porting advisor](https://github.com/arm-hpc/porting-advisor),
         * Use of build artifacts in the build process.
 
 
-For more information on how to modify issues reported, use the tool’s built-in help:
+For more information on how to modify issues reported, use the tool's built-in help:
 
 ```
-./porting-advisor-linux-x86_64 -–help
+./porting-advisor-linux-x86_64 --help
 ```
 
 If you run into any issues, see our [CONTRIBUTING](CONTRIBUTING.md#reporting-bugsfeature-requests) file.
@@ -127,21 +127,21 @@ $ ./porting-advisor-linux-x86_64 ~/my/path/to/my/repo --output dependencies.xlsx
 ./dist/porting-advisor-linux-x86_64 ./sample-projects/
 | Elapsed Time: 0:00:03
 
-Porting Advisor for Graviton v1.0.0
+Porting Advisor for Ampere Processor v1.0.0
 Report date: 2023-01-06 23:48:20
 
 13 files scanned.
-detected java code. we recommend using Corretto. see https://aws.amazon.com/corretto/ for more details.
+detected java code. we recommend using AMPERE_JDK. see https://AMPERE.JDK_EXAMPLE.com for more details.
 detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.2.1.
-detected python code. min version 3.7.5 is required. we detected that you have version 3.10.6. see https://github.com/aws/aws-graviton-getting-started/blob/main/python.md for more details.
-./sample-projects/java-samples/pom.xml: dependency library: leveldbjni-all is not supported on Graviton
+detected python code. min version 3.7.5 is required. we detected that you have version 3.10.6. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/python.md for more details.
+./sample-projects/java-samples/pom.xml: dependency library: leveldbjni-all is not supported on Ampere processor.
 ./sample-projects/java-samples/pom.xml: using dependency library snappy-java version 1.1.3. upgrade to at least version 1.1.4
 ./sample-projects/java-samples/pom.xml: using dependency library zstd-jni version 1.1.0. upgrade to at least version 1.2.0
 ./sample-projects/python-samples/incompatible/requirements.txt:3: using dependency library OpenBLAS version 0.3.16. upgrade to at least version 0.3.17
-detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://github.com/aws/aws-graviton-getting-started/blob/main/golang.md for more details.
-./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://github.com/aws/aws-graviton-getting-started/blob/main/java.md#building-multi-arch-jars
+detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/golang.md for more details.
+./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/java_build.md
 ./sample-projects/python-samples/incompatible/requirements.txt:5: dependency library NumPy is present. min version 1.19.0 is required.
-detected java code. min version 8 is required. version 11 or above is recommended. see https://github.com/aws/aws-graviton-getting-started/blob/main/java.md for more details.
+detected java code. min version 8 is required. version 11 or above is recommended. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/java.md for more details.
 
 Use --output FILENAME.html to generate an HTML report.
 ```
