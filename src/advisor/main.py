@@ -165,7 +165,7 @@ def main(argv=sys.argv[1:]):
 
         scanners.finalize_report(report)
         
-    print(f'\nPorting Advisor for Graviton v{__version__}')
+    print(f'\nPorting Advisor for Ampere Processors v{__version__}')
     report_date = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     print(f'Report date: {report_date}\n')
     if args.output:
