@@ -151,7 +151,7 @@
         { "name": "spglib", "minVersion": "1.16.2" },
         { "name": "sqlalchemy", "minVersion": "1.3.19" },
         { "name": "statsmodels", "minVersion": "0.13.1" },
-        { "name": "tensorflow", "minVersion": "2.7.0", "detailsUrl": "https://solutions-portal-cms-prod-bucket.s3.us-east-1.amazonaws.com/Tensor_Flow_Serving_User_Guide_v_1_0_78b34b781e.pdf?updated_at=2022-08-29T17:57:04.219Z" },
+        { "name": "tensorflow", "minVersion": "2.7.0", "detailsUrl": "https://amperecomputing.com/solutions/ampere-ai" },
         { "name": "torch", "minVersion": "1.10.0" },
         { "name": "torchvision", "minVersion": "0.10.0" },
         { "name": "tornado", "minVersion": "6.1" },
