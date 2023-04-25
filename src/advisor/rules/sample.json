@@ -7,7 +7,7 @@
             "extensions": [".py"],
             "dependencyFiles": ["requirements.txt"],
             "description": "Additional Instructions",
-            "detailsUrl": "https://amperecomputing.com/solution",
+            "detailsUrl": "https://amperecomputing.com/developers",
             "overrideText": "Only this will show up"
         }
     ],
@@ -17,7 +17,7 @@
             "minVersion": "1.2.3",
             "recommendedVersion": "2.3.4",
             "description": "Additional Instructions",
-            "detailsUrl": "https://amperecomputing.com/solution",
+            "detailsUrl": "https://amperecomputing.com/developers",
             "overrideText": "Only this will show up"
         }
     ],
@@ -27,7 +27,7 @@
             "minVersion": "1.2.3",
             "recommendedVersion": "2.3.4",
             "description": "Additional Instructions",
-            "detailsUrl": "https://amperecomputing.com/solution",
+            "detailsUrl": "https://amperecomputing.com/developers",
             "overrideText": "Only this will show up"
         },
         {
