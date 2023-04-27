@@ -1,7 +1,7 @@
 {
     "languageRules": {
         "name": "Python",
-        "detailsUrl": "https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64/",
+        "detailsUrl": "https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64",
         "extensions": [".py"],
         "dependencyFiles": ["requirements.txt"],
         "minVersion": "3.7.5"

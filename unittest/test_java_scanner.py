@@ -168,11 +168,11 @@ class TestJavaScaner(unittest.TestCase):
         self.scanner.scan_file_object('main.java', io_object, self.report)
         self.assertEqual(2, len(self.report.remarks))
         self.assertEqual(
-            f'detected java code. min version 8 is required. version 11 or above is recommended. see https://github.com/aws/aws-graviton-getting-started/blob/main/java.md for more details.',
+            f'detected java code. min version 8 is required. version 11 or above is recommended. see https://amperecomputing.com/tuning-guides/unlocking-java-performance-tuning-guide for more details.',
             self.report.remarks[0].description
         )
         self.assertEqual(
-            f'detected java code. we recommend using Corretto. see https://aws.amazon.com/corretto/ for more details.',
+            f'detected java code. we recommend using Eclipse Temurin version 17 or above release for aarch64. see https://adoptium.net/temurin/releases for more details.',
             self.report.remarks[1].description
         )
 
