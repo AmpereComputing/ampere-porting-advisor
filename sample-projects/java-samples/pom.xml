@@ -4,7 +4,7 @@
   <artifactId>my-test1</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>Porting Advisor for Graviton</name>  
+  <name>Porting Advisor for Ampere Processor</name>  
   
   <dependencies>
     <dependency>

@@ -27,14 +27,14 @@ function test_report() {
 FILE_NAME=`./getBinaryName.sh`
 chmod +x ./dist/$FILE_NAME
 
-declare -a lines_to_find=("detected java code. we recommend using Corretto"
+declare -a lines_to_find=("detected java code. we recommend using Eclipse Temurin"
                 "detected python code. min version 3.7.5 is required"
                 "detected python code. if you need pip, version 19.3 or above is recommended"
                 "dependency library numpy is present. min version 1.19.0 is required"
                 "detected java code. min version 8 is required. version 11 or above is recommended"
                 "using dependency library snappy-java version 1.1.3. upgrade to at least version 1.1.4"
                 "using dependency library hadoop-lzo. this library requires a manual build"
-                "dependency library: leveldbjni-all is not supported on Graviton"
+                "dependency library: leveldbjni-all is not supported on Ampere Processors"
                 "detected go code. min version 1.16 is required. version 1.18 or above is recommended"
                 "using dependency library github.com/golang/snappy version 0.0.1. upgrade to at least version 0.0.2"
                 )
