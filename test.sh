@@ -21,3 +21,9 @@ echo "Running integration tests"
 if [ $? -ne 0 ]; then
     echo "**ERROR**: integration tests failed" && exit 1
 fi
+
+echo "Running load tests"
+./load_test.sh
+if [ $? -ne 0 ]; then
+    echo "**ERROR**: load tests failed" && exit 1
+fi
