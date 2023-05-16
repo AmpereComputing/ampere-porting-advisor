@@ -1,0 +1,77 @@
+{
+  "python": {
+    "type": "git",
+    "app": "pytorch",
+    "url": "https://github.com/pytorch/pytorch.git",
+    "branch": "v2.0.1",
+    "integrity": {
+      "architecture-specific AVX-256 intrinsic": 340,
+      "architecture-specific inline assembly": 45,
+      "architecture-specific intrinsic": 256
+    },
+    "prompts": [
+      "9064 files scanned",
+      "150 source files are already ported to aarch64",
+      "46 inline assembly statements or intrinsics already have aarch64 equivalents",
+      "detected java code. we recommend using Eclipse Temurin version 17 or above release for aarch64. see https://adoptium.net/temurin/releases for more details",
+      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
+      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details",
+      "detected java code. min version 8 is required. version 11 or above is recommended. see https://amperecomputing.com/tuning-guides/unlocking-java-performance-tuning-guide for more details",
+      "dependency library numpy is present. min version 1.19.0 is required",
+      "dependency library pyyaml is present. min version 5.4.1 is required",
+      "dependency library lxml is present. min version 4.5.2 is required"
+    ]
+  },
+  "c_cpp": {
+    "type": "git",
+    "app": "mysql-server",
+    "url": "https://github.com/mysql/mysql-server.git",
+    "branch": "mysql-8.0.33",
+    "integrity": {
+      "preprocessor error on aarch64": 2,
+      "architecture-specific inline assembly": 35,
+      "architecture-specific intrinsic": 33
+    },
+    "prompts": [
+      "10628 files scanned",
+      "8 inline assembly statements or intrinsics already have aarch64 equivalents",
+      "detected java code. we recommend using Eclipse Temurin version 17 or above release for aarch64. see https://adoptium.net/temurin/releases for more details",
+      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
+      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details",
+      "detected java code. min version 8 is required. version 11 or above is recommended. see https://amperecomputing.com/tuning-guides/unlocking-java-performance-tuning-guide for more details",
+      "autoconf config.guess recognizes aarch64 architecture"
+    ]
+  },
+  "java": {
+    "type": "wget",
+    "app": "spark-2.3.0-bin-hadoop2.7",
+    "url": "https://archive.apache.org/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz",
+    "integrity": {
+      "JAR has native methods but no libraries found for aarch64/Linux": 10
+    },
+    "prompts": [
+      "592 files scanned",
+      "detected java code. we recommend using Eclipse Temurin version 17 or above release for aarch64. see https://adoptium.net/temurin/releases for more details",
+      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
+      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details",
+      "detected java code. min version 8 is required. version 11 or above is recommended. see https://amperecomputing.com/tuning-guides/unlocking-java-performance-tuning-guide for more details"
+    ]
+  },
+  "go": {
+    "type": "git",
+    "app": "cilium",
+    "url": "https://github.com/cilium/cilium.git",
+    "branch": "v1.13.2",
+    "integrity": {
+      "architecture-specific intrinsic": 1,
+      "architecture-specific inline assembly": 10,
+      "architecture-specific assembly source file": 4
+    },
+    "prompts": [
+      "12116 files scanned",
+      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
+      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details",
+      "detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://go.dev/dl/ for more details"
+    ]
+  }
+}
