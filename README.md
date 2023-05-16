@@ -128,20 +128,20 @@ $ ./porting-advisor-linux-x86_64 ~/my/path/to/my/repo --output dependencies.xlsx
 | Elapsed Time: 0:00:03
 
 Porting Advisor for Ampere Processor v1.0.0
-Report date: 2023-01-06 23:48:20
+Report date: 2023-05-10 11:31:52
 
 13 files scanned.
-detected java code. we recommend using AMPERE_JDK. see https://AMPERE.JDK_EXAMPLE.com for more details.
-detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.2.1.
-detected python code. min version 3.7.5 is required. we detected that you have version 3.10.6. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/python.md for more details.
+detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://go.dev/dl/ for more details.
+detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1.a
+detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details.
 ./sample-projects/java-samples/pom.xml: dependency library: leveldbjni-all is not supported on Ampere processor.
 ./sample-projects/java-samples/pom.xml: using dependency library snappy-java version 1.1.3. upgrade to at least version 1.1.4
 ./sample-projects/java-samples/pom.xml: using dependency library zstd-jni version 1.1.0. upgrade to at least version 1.2.0
 ./sample-projects/python-samples/incompatible/requirements.txt:3: using dependency library OpenBLAS version 0.3.16. upgrade to at least version 0.3.17
-detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/golang.md for more details.
-./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/java_build.md
+detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://go.dev/dl/ for more details.
+./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://github.com/twitter/hadoop-lzo#building-and-configuring
 ./sample-projects/python-samples/incompatible/requirements.txt:5: dependency library NumPy is present. min version 1.19.0 is required.
-detected java code. min version 8 is required. version 11 or above is recommended. see https://AMPERE_LANG_USAGE_EXAMPLE_GUIDE_DOT_COM/java.md for more details.
+detected java code. min version 8 is required. version 11 or above is recommended. see https://amperecomputing.com/tuning-guides/unlocking-java-performance-tuning-guide for more details.
 
 Use --output FILENAME.html to generate an HTML report.
 ```
