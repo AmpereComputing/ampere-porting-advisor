@@ -172,7 +172,7 @@ class TestJavaScaner(unittest.TestCase):
             self.report.remarks[0].description
         )
         self.assertEqual(
-            f'detected java code. we recommend using Eclipse Temurin version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details.',
+            f'detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details.',
             self.report.remarks[1].description
         )
 

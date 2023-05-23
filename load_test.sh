@@ -76,4 +76,4 @@ do
     check_prompts $prog_lang $BASELINE_JSON "$dl_app.html"
     [ $? -ne 0 ] && exit 1
 done
-
+exit 0

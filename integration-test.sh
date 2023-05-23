@@ -27,7 +27,7 @@ function test_report() {
 FILE_NAME=`./getBinaryName.sh`
 chmod +x ./dist/$FILE_NAME
 
-declare -a lines_to_find=("detected java code. we recommend using Eclipse Temurin"
+declare -a lines_to_find=("detected java code. we recommend using OpenJDK"
                 "detected python code. min version 3.7.5 is required"
                 "detected python code. if you need pip, version 19.3 or above is recommended"
                 "dependency library numpy is present. min version 1.19.0 is required"
