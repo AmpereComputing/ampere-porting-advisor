@@ -66,7 +66,7 @@ class TestPythonScanner(unittest.TestCase):
         self.scanner.scan_file_object('main.py', io_object, self.report)
         self.assertEqual(2, len(self.report.remarks))
         self.assertEqual(
-            f'detected python code. min version 3.7.5 is required. we detected that you have version {runtime_version}. see https://docs.anaconda.com/free/anaconda/reference/packages/py3.7_linux-aarch64 for more details.',
+            f'detected python code. min version 3.7.5 is required. we detected that you have version {runtime_version}. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details.',
             self.report.remarks[0].description)
         self.assertEqual(
             f'detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version {pip_version}.',

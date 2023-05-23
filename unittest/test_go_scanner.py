@@ -63,7 +63,7 @@ go 1.15
         self.assertEqual(1, len(self.report.remarks))
         self.assertEqual(ReportItem.NEGATIVE, self.report.remarks[0].item_type)
         self.assertIsInstance(self.report.remarks[0], LanguageVersionRemark)
-        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://go.dev/dl/ for more details.', self.report.remarks[0].description)
+        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.', self.report.remarks[0].description)
 
     def test_scan_file_object_with_go_mod_file_with_min_version_adds_language_version_remark(self):
         io_object = io.StringIO('''module sample/graviton-invalid
@@ -73,7 +73,7 @@ go 1.16
         self.scanner.scan_file_object('go.mod', io_object, self.report)
         self.assertEqual(1, len(self.report.remarks))
         self.assertEqual(ReportItem.POSITIVE, self.report.remarks[0].item_type)
-        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.16. see https://go.dev/dl/ for more details.', self.report.remarks[0].description)
+        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.16. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.', self.report.remarks[0].description)
     
     def test_scan_file_object_with_go_mod_file_with_recommended_version_adds_language_version_remark(self):
         io_object = io.StringIO('''module sample/graviton-invalid
@@ -83,4 +83,4 @@ go 1.18
         self.scanner.scan_file_object('go.mod', io_object, self.report)
         self.assertEqual(1, len(self.report.remarks))
         self.assertEqual(ReportItem.POSITIVE, self.report.remarks[0].item_type)
-        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.18. see https://go.dev/dl/ for more details.', self.report.remarks[0].description)
+        self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.18. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.', self.report.remarks[0].description)
