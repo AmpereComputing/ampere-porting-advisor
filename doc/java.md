@@ -35,7 +35,9 @@ make install
 Some JARs leveraged _[JNI](https://en.wikipedia.org/wiki/Java_Native_Interface)_ enables programmers to write native methods to handle situations when an application cannot be written entirely in the Java programming language. It allows standard Java class library to support the platform-specific features or boost performance on specific platforms, and it's important to build these library on AArch64 to get best functionality and performance on Ampere Processors.
 
 To check JARs contains native shared objects:
-`for FILE in *; do OUT=$(echo "$FILE:" && jar tf $FILE | grep -Pv '^META-INF/|(\.class|/)$' | grep '\.so') && echo $OUT; done`
+```shell
+for FILE in *; do OUT=$(echo "$FILE:" && jar tf $FILE | grep -Pv '^META-INF/|(\.class|/)$' | grep '\.so') && echo $OUT; done
+```
 
 For those JARs without AArch64 native shared objects, we can re-compile JARs by Maven on a Ampere platform or cross-compile on a x86 platform.
 
