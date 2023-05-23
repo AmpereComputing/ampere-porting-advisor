@@ -34,9 +34,70 @@ make install
 ### Building JAR libraries manually
 Some JARs leveraged _[JNI](https://en.wikipedia.org/wiki/Java_Native_Interface)_ enables programmers to write native methods to handle situations when an application cannot be written entirely in the Java programming language. It allows standard Java class library to support the platform-specific features or boost performance on specific platforms, and it's important to build these library on AArch64 to get best functionality and performance on Ampere Processors.
 
-To check JARs contains native shared objects:
+To scan JARs contains native shared objects by blow sample script:
 ```shell
-for FILE in *; do OUT=$(echo "$FILE:" && jar tf $FILE | grep -Pv '^META-INF/|(\.class|/)$' | grep '\.so') && echo $OUT; done
+# cat java_scan.sh
+
+object_dir=$1
+tmpd=.tmp
+mkdir $tmpd
+
+jars=`find $object_dir -name *.jar`
+
+for jar in ${jars[@]};
+do
+  rm -rf $tmpd
+  jar_name=`basename $jar`
+  unzip -q $jar -d $tmpd
+  libs=`find $tmpd -name *.so`
+  for lib in ${libs[@]};do
+    arch=`file $lib | awk -F, '{print $2}'`
+    echo $jar_name, `basename $lib`, $arch
+  done
+done
+
+rm -rf $tmpd
+```
+
+It list shared objects and it's platform architecture as following output format:
+```
+java_scan.sh Hadoop/spark-2.3.0-bin-hadoop2.7
+scala-compiler-2.11.8.jar, libjansi.so, Intel 80386
+scala-compiler-2.11.8.jar, libjansi.so, x86-64
+jline-2.12.1.jar, libjansi.so, Intel 80386
+jline-2.12.1.jar, libjansi.so, x86-64
+netty-all-4.1.17.Final.jar, libnetty_transport_native_epoll_x86_64.so, x86-64
+commons-crypto-1.0.0.jar, libcommons-crypto.so, Intel 80386
+commons-crypto-1.0.0.jar, libcommons-crypto.so, x86-64
+lz4-java-1.4.0.jar, liblz4-java.so, ARM aarch64
+lz4-java-1.4.0.jar, liblz4-java.so, x86-64
+lz4-java-1.4.0.jar, liblz4-java.so, Intel 80386
+lz4-java-1.4.0.jar, liblz4-java.so, 64-bit PowerPC or cisco 7500
+lz4-java-1.4.0.jar, liblz4-java.so, IBM S/390
+lz4-java-1.4.0.jar, liblz4-java.so, for MS Windows
+zstd-jni-1.3.2-2.jar, libzstd-jni.so,
+zstd-jni-1.3.2-2.jar, libzstd-jni.so, ARM aarch64
+zstd-jni-1.3.2-2.jar, libzstd-jni.so, x86-64
+zstd-jni-1.3.2-2.jar, libzstd-jni.so, Intel 80386
+zstd-jni-1.3.2-2.jar, libzstd-jni.so, 64-bit PowerPC or cisco 7500
+snappy-java-1.1.2.6.jar, libsnappyjava.so, ARM aarch64
+snappy-java-1.1.2.6.jar, libsnappyjava.so, ARM
+snappy-java-1.1.2.6.jar, libsnappyjava.so, ARM
+snappy-java-1.1.2.6.jar, libsnappyjava.so, 64-bit PowerPC or cisco 7500
+snappy-java-1.1.2.6.jar, libsnappyjava.so, 64-bit PowerPC or cisco 7500
+snappy-java-1.1.2.6.jar, libsnappyjava.so, IBM S/390
+snappy-java-1.1.2.6.jar, libsnappyjava.so, Intel 80386
+snappy-java-1.1.2.6.jar, libsnappyjava.so, x86-64
+snappy-java-1.1.2.6.jar, libsnappyjava.so, SPARC32PLUS
+snappy-java-1.1.2.6.jar, libsnappyjava.so, Intel 80386
+snappy-java-1.1.2.6.jar, libsnappyjava.so, x86-64
+leveldbjni-all-1.8.jar, libleveldbjni.so, Intel 80386
+leveldbjni-all-1.8.jar, libleveldbjni.so, x86-64
+spark-2.3.0-yarn-shuffle.jar, libnetty_transport_native_epoll_x86_64.so, x86-64
+spark-2.3.0-yarn-shuffle.jar, libleveldbjni.so, Intel 80386
+spark-2.3.0-yarn-shuffle.jar, libleveldbjni.so, x86-64
+spark-2.3.0-yarn-shuffle.jar, libcommons-crypto.so, Intel 80386
+spark-2.3.0-yarn-shuffle.jar, libcommons-crypto.so, x86-64
 ```
 
 For those JARs without AArch64 native shared objects, we can re-compile JARs by Maven on a Ampere platform or cross-compile on a x86 platform.
