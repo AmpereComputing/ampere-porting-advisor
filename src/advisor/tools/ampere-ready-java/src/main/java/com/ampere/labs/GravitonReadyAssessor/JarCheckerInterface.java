@@ -1,4 +1,4 @@
-package com.ampere.labs.GravitonReadyAssessor;
+package com.ampere.labs.AmpereReadyAssessor;
 
 import java.io.IOException;
 import java.util.List;
