@@ -30,7 +30,7 @@ class JavaScanner(LanguageScanner):
             tool_invoker = JavaToolInvoker()
             is_jar_or_war = ext == '.jar' or ext == '.war'
             if is_jar_or_war and tool_invoker.can_run():
-                result, message = tool_invoker.graviton_ready_assessor(filename)
+                result, message = tool_invoker.ampere_ready_assessor(filename)
                 if (result == 3):
                     report.add_issue(NativeMethodsIssue(message, filename=filename))
             elif is_jar_or_war:
