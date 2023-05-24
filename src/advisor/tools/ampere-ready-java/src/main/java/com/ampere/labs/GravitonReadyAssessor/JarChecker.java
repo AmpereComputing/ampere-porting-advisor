@@ -1,4 +1,4 @@
-package com.amazonaws.labs.GravitonReadyAssessor;
+package com.ampere.labs.GravitonReadyAssessor;
 
 public abstract class JarChecker implements JarCheckerInterface {
 }

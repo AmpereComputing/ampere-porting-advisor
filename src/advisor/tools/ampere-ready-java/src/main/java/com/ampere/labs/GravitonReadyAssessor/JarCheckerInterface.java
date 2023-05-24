@@ -1,4 +1,4 @@
-package com.amazonaws.labs.GravitonReadyAssessor;
+package com.ampere.labs.GravitonReadyAssessor;
 
 import java.io.IOException;
 import java.util.List;

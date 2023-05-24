@@ -6,7 +6,7 @@ from ..utils import Utils
 class JavaToolInvoker():
     def __init__(self):
         self.JAR_PATH = path.abspath(path.join(path.dirname(__file__), '..', '..', 'tools', 'ampere-ready-java', 'target', 'AmpereReadyAssessor-1.0-SNAPSHOT.jar'))
-        self.CLASS_NAME = 'com.amazonaws.labs.AmpereReadyAssessor.Command'
+        self.CLASS_NAME = 'com.ampere.labs.AmpereReadyAssessor.Command'
 
     def can_run(self):
         """Verifies that Java is installed

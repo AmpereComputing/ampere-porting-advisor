@@ -1,4 +1,4 @@
-package com.amazonaws.labs.GravitonReadyAssessor;
+package com.ampere.labs.GravitonReadyAssessor;
 
 import static org.junit.Assert.assertTrue;
 
