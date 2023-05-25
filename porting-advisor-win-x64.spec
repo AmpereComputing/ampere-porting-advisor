@@ -8,7 +8,7 @@ a = Analysis(
     ['src\\porting-advisor.py'],
     pathex=[],
     binaries=[],
-    datas=[('src\\advisor\\rules\\*.json', 'advisor\\rules'), ('src\\advisor\\tools\\graviton-ready-java\\target\\*', 'advisor\\tools\\graviton-ready-java\\target'), ('src\\advisor\\templates\\template.html', 'advisor\\templates'), ('.venv\\lib\\site-packages\\certifi\\cacert.pem', 'certifi')],
+    datas=[('src\\advisor\\rules\\*.json', 'advisor\\rules'), ('src\\advisor\\tools\\ampere-ready-java\\target\\*', 'advisor\\tools\\ampere-ready-java\\target'), ('src\\advisor\\templates\\template.html', 'advisor\\templates'), ('.venv\\lib\\site-packages\\certifi\\cacert.pem', 'certifi')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

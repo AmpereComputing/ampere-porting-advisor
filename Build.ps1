@@ -39,9 +39,9 @@ if($LASTEXITCODE -ne 0) {
 }
 
 try {
-    mvn package --file .\src\advisor\tools\graviton-ready-java\pom.xml
+    mvn package --file .\src\advisor\tools\ampere-ready-java\pom.xml
 } catch {
-    Write-Host "Could not find Maven. Skipping jar generation for Graviton Ready Java tool."
+    Write-Host "Could not find Maven. Skipping jar generation for Ampere Ready Java tool."
 }
 
 Write-Host "Generating executable"

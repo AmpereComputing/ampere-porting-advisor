@@ -1,4 +1,4 @@
-package com.amazonaws.labs.GravitonReadyAssessor;
+package com.ampere.labs.AmpereReadyAssessor;
 
 import lombok.Getter;
 import lombok.NonNull;

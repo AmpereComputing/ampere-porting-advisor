@@ -41,15 +41,15 @@ then
 
     if hash mvn
     then
-        mvn package --file ./src/advisor/tools/graviton-ready-java/pom.xml
+        mvn package --file ./src/advisor/tools/ampere-ready-java/pom.xml
         if [ $? -ne 0 ]; then
-            echo "**ERROR**: error generating jar for Graviton Ready Java tool" && exit 1
+            echo "**ERROR**: error generating jar for Ampere Ready Java tool" && exit 1
         fi
     fi
 
     echo "Generating executable"
     CERT_PATH=$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')
-    pyinstaller --onefile --clean --noconfirm --distpath dist --add-data 'src/advisor/rules/*.json:advisor/rules' --add-data 'src/advisor/tools/graviton-ready-java/target/*:advisor/tools/graviton-ready-java/target' --add-data 'src/advisor/templates/template.html:advisor/templates' --add-data "$CERT_PATH/certifi/cacert.pem:certifi" --name "$FILE_NAME" "src/porting-advisor.py" --runtime-hook 'src/updater.py' --exclude-module readline
+    pyinstaller --onefile --clean --noconfirm --distpath dist --add-data 'src/advisor/rules/*.json:advisor/rules' --add-data 'src/advisor/tools/ampere-ready-java/target/*:advisor/tools/ampere-ready-java/target' --add-data 'src/advisor/templates/template.html:advisor/templates' --add-data "$CERT_PATH/certifi/cacert.pem:certifi" --name "$FILE_NAME" "src/porting-advisor.py" --runtime-hook 'src/updater.py' --exclude-module readline
     if [ $? -ne 0 ]; then
        echo "**ERROR**: pyinstaller failed, binary was not created" && exit 1
     fi

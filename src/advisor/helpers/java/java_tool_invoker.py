@@ -5,8 +5,8 @@ from ..utils import Utils
 
 class JavaToolInvoker():
     def __init__(self):
-        self.JAR_PATH = path.abspath(path.join(path.dirname(__file__), '..', '..', 'tools', 'graviton-ready-java', 'target', 'GravitonReadyAssessor-1.0-SNAPSHOT.jar'))
-        self.CLASS_NAME = 'com.amazonaws.labs.GravitonReadyAssessor.Command'
+        self.JAR_PATH = path.abspath(path.join(path.dirname(__file__), '..', '..', 'tools', 'ampere-ready-java', 'target', 'AmpereReadyAssessor-1.0-SNAPSHOT.jar'))
+        self.CLASS_NAME = 'com.ampere.labs.AmpereReadyAssessor.Command'
 
     def can_run(self):
         """Verifies that Java is installed
@@ -26,8 +26,8 @@ class JavaToolInvoker():
             logging.debug('Error checking for java or maven.', exc_info=True)
             return False
     
-    def graviton_ready_assessor(self, file_path):
-        """Calls the GravitonReadyAssessor tool with the specified path
+    def ampere_ready_assessor(self, file_path):
+        """Calls the AmpereReadyAssessor tool with the specified path
 
         Args:
             file_path: The path to the JAR or WAR file
@@ -73,7 +73,7 @@ class JavaToolInvoker():
             if (Utils.running_from_binary()):
                 return False
             
-            pom_path = path.abspath(path.join(path.dirname(__file__), '..', '..', 'tools', 'graviton-ready-java', 'pom.xml'))
+            pom_path = path.abspath(path.join(path.dirname(__file__), '..', '..', 'tools', 'ampere-ready-java', 'pom.xml'))
             mvn_process = subprocess.run(['mvn', 'package', '--file', pom_path], capture_output=True)
             if (mvn_process.returncode == 0):
                 return True
@@ -81,5 +81,5 @@ class JavaToolInvoker():
             return False
 
         except:
-            logging.error('Error checking for Graviton Ready JAR file.', exc_info=True)
+            logging.error('Error checking for Ampere Ready JAR file.', exc_info=True)
             return False
