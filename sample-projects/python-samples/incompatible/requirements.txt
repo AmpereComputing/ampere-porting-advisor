@@ -1,4 +1,4 @@
-# Porting Advisor for Graviton test file
+# Porting Advisor for Ampere test file
 
 SciPy>=1.7.1
 NumPy
