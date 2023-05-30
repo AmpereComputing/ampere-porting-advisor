@@ -16,7 +16,7 @@ class TestGoScanner(unittest.TestCase):
         self.assertTrue(self.scanner.accepts_file('main.go'))
 
     def test_scan_file_object_with_unreported_dependency_finds_no_issues(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.18
 
@@ -29,7 +29,7 @@ require (
         self.assertEqual(0, len(self.report.errors))
     
     def test_scan_file_object_with_valid_version_finds_no_issues(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.18
 
@@ -42,7 +42,7 @@ require (
         self.assertEqual(0, len(self.report.errors))
     
     def test_scan_file_object_with_invalid_version_adds_issue(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.18
 
@@ -55,7 +55,7 @@ require (
         self.assertEqual(0, len(self.report.errors))
     
     def test_scan_file_object_with_go_mod_file_with_invalid_version_adds_language_version_issue(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.15
 ''')
@@ -66,7 +66,7 @@ go 1.15
         self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.15. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.', self.report.remarks[0].description)
 
     def test_scan_file_object_with_go_mod_file_with_min_version_adds_language_version_remark(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.16
 ''')
@@ -76,7 +76,7 @@ go 1.16
         self.assertEqual('detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.16. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.', self.report.remarks[0].description)
     
     def test_scan_file_object_with_go_mod_file_with_recommended_version_adds_language_version_remark(self):
-        io_object = io.StringIO('''module sample/graviton-invalid
+        io_object = io.StringIO('''module sample/ampere-invalid
 
 go 1.18
 ''')

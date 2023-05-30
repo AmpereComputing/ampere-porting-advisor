@@ -73,7 +73,7 @@ $Dependencies = @(
     "<si><t>@commitlint/cli</t></si><si><t>17.0.3</t></si>"
     "<si><t>eslint</t></si><si><t>7.32.0</t></si>"
     "<si><t>typescript</t></si><si><t>4.7.4</t></si>"
-    "<si><t>github.com/aws/aws-sdk-go</t></si>"
+    "<si><t>github.com/oracle/oci-go-sdk</t></si>"
     "<si><t>github.com/golang/snappy</t></si>"
     "<si><t>rails</t></si><si><t>6.1.6.1</t></si>"
     "<si><t>rake</t></si><si><t>11.1</t></si>"

@@ -17,7 +17,7 @@ def check_for_updates():
     """Checks for latest version. Displays a message if new message is available.
     """
     if (is_newer_version_available()):
-        print(f'New version of Porting Advisor for Graviton is available. Please download it at: {DOWNLOAD_URL}')
+        print(f'New version of Porting Advisor for Ampere is available. Please download it at: {DOWNLOAD_URL}')
 
 def is_newer_version_available():
     current_version = __version__
