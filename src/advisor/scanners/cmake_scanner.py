@@ -1,6 +1,6 @@
 """
 SPDX-License-Identifier: Apache-2.0
-Copyright (c) 2021, Ampere Computing LLC
+Copyright (c) 2023, Ampere Computing LLC
 """
 
 import os
@@ -11,7 +11,6 @@ from ..constants.arch_specific_options import ARCH_SPECIFIC_OPTS
 from ..parsers.continuation_parser import ContinuationParser
 from ..reports.issues.arch_specific_library_issue import ArchSpecificLibraryIssue
 from ..reports.issues.arch_specific_build_option_issue import ArchSpecificBuildOptionIssue
-from ..reports.issues.build_command_issue import BuildCommandIssue
 from ..reports.issues.define_other_arch_issue import DefineOtherArchIssue
 from .scanner import Scanner
 
