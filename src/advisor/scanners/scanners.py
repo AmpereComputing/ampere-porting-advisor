@@ -25,6 +25,7 @@ from .config_guess_scanner import ConfigGuessScanner
 from .go_scanner import GoScanner
 from .java_scanner import JavaScanner
 from .makefile_scanner import MakefileScanner
+from .cmake_scanner import CMakeScanner
 from .python_scanner import PythonScanner
 from .source_scanner import SourceScanner
 
@@ -47,7 +48,8 @@ class Scanners:
                         GoScanner(),
                         AsmSourceScanner(),
                         ConfigGuessScanner(),
-                        MakefileScanner()]
+                        MakefileScanner(),
+                        CMakeScanner()]
         self.filters = [PortFilter()] if filter_ported_code else []
         self.filters += [IssueTypeFilter(issue_type_config),
                          TargetOsFilter(),
