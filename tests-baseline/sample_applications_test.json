@@ -10,13 +10,13 @@
       "architecture-specific intrinsic": 256
     },
     "prompts": [
-      "9064 files scanned",
+      "files scanned",
       "150 source files are already ported to aarch64",
       "46 inline assembly statements or intrinsics already have aarch64 equivalents",
-      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details",
-      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
-      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details",
-      "detected java code. min version 8 is required. version 11 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details",
+      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64.",
+      "detected python code. if you need pip, version 19.3 or above is recommended.",
+      "detected python code. min version 3.7.5 is required.",
+      "detected java code. min version 8 is required. version 17 or above is recommended",
       "dependency library numpy is present. min version 1.19.0 is required",
       "dependency library pyyaml is present. min version 5.4.1 is required",
       "dependency library lxml is present. min version 4.5.2 is required"
@@ -33,12 +33,12 @@
       "architecture-specific intrinsic": 33
     },
     "prompts": [
-      "10628 files scanned",
+      "files scanned",
       "8 inline assembly statements or intrinsics already have aarch64 equivalents",
-      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details",
-      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
-      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details",
-      "detected java code. min version 8 is required. version 11 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details",
+      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64.",
+      "detected python code. if you need pip, version 19.3 or above is recommended.",
+      "detected python code. min version 3.7.5 is required.",
+      "detected java code. min version 8 is required. version 17 or above is recommended.",
       "autoconf config.guess recognizes aarch64 architecture"
     ]
   },
@@ -50,11 +50,11 @@
       "JAR has native methods but no libraries found for aarch64/Linux": 10
     },
     "prompts": [
-      "592 files scanned",
-      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details",
-      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
-      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details",
-      "detected java code. min version 8 is required. version 11 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details"
+      "files scanned",
+      "detected java code. we recommend using OpenJDK version 17 or above release for aarch64.",
+      "detected python code. if you need pip, version 19.3 or above is recommended.",
+      "detected python code. min version 3.7.5 is required.",
+      "detected java code. min version 8 is required. version 17 or above is recommended."
     ]
   },
   "go": {
@@ -68,10 +68,10 @@
       "architecture-specific assembly source file": 4
     },
     "prompts": [
-      "12116 files scanned",
-      "detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1",
-      "detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details",
-      "detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details"
+      "files scanned",
+      "detected python code. if you need pip, version 19.3 or above is recommended.",
+      "detected python code. min version 3.7.5 is required.",
+      "detected go code. min version 1.16 is required. version 1.18 or above is recommended."
     ]
   }
 }

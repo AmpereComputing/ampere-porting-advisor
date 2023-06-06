@@ -5,7 +5,7 @@
         "extensions": [".java", ".jar", ".war"],
         "dependencyFiles": ["pom.xml"],
         "minVersion": "8",
-        "recommendedVersion": "11"
+        "recommendedVersion": "17"
     },
     "toolsRules": [
         {
