@@ -15,13 +15,12 @@
 # https://docs.gitlab.com/ee/development/cicd/templates.html
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
-image: ubuntu:22.04
+image: ubuntu:apa_ci
 
 .job_template: &job_configuration  # Hidden yaml configuration that defines an anchor named 'job_configuration'
   tags:
     - apa
   script:
-    - sudo apt install openjdk-17-jre python3.10-dev pip python3.10-venv maven unzip jq -y
     - sudo sh build.sh
     # an alternative approach is to install and run:
     - sudo sh test.sh
