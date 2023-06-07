@@ -49,6 +49,7 @@ If you run into any issues, see our [CONTRIBUTING](CONTRIBUTING.md#reporting-bug
 
 - Python 3.10 or above (with PIP3 and venv module installed).
 - (Optionally) Open JDK 17 (or above) and Maven 3.5 (or above) if you want to scan JAR files for native methods.
+- Unzip and jq is required to run test cases.
 
 **Enable Python Environment**
 
