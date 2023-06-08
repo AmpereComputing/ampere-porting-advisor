@@ -16,8 +16,6 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-image: ubuntu:apa_ci
-
 .job_template: &job_configuration  # Hidden yaml configuration that defines an anchor named 'job_configuration'
   tags:
     - apa
