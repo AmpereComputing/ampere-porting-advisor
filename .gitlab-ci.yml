@@ -22,9 +22,9 @@ image: ubuntu:apa_ci
   tags:
     - apa
   script:
-    - sudo sh build.sh
+    - ./build.sh
     # an alternative approach is to install and run:
-    - sudo sh test.sh
+    - ./test.sh
     - sudo /usr/local/bin/pyclean .
 
 before_script:
