@@ -60,7 +60,7 @@ do
     elif [ 'wget' == $dl_type ]; then
         dl_file=$(basename "$dl_url")
         [ ! -f "$APP_DIR/$prog_lang/$dl_file" ] && wget $dl_url -P $APP_DIR/$prog_lang/
-        [ ! -d "$APP_DIR/$prog_lang/$dl_app" ] && tar zxf $APP_DIR/$prog_lang/$dl_file
+        [ ! -d "$APP_DIR/$prog_lang/$dl_app" ] && tar zxf $APP_DIR/$prog_lang/$dl_file -C $APP_DIR/$prog_lang/
     else
         echo "wrong download type"
     fi
