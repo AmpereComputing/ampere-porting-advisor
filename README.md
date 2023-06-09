@@ -142,7 +142,7 @@ detected python code. min version 3.7.5 is required. we detected that you have v
 detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.
 ./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#building-jar-libraries-manually
 ./sample-projects/python-samples/incompatible/requirements.txt:5: dependency library NumPy is present. min version 1.19.0 is required.
-detected java code. min version 8 is required. version 11 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details.
+detected java code. min version 8 is required. version 17 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details.
 
 Use --output FILENAME.html to generate an HTML report.
 ```
