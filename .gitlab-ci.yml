@@ -24,7 +24,8 @@ default:
   script:
     - ./build.sh
     # an alternative approach is to install and run:
-    - ./test.sh
+    - ./unit-test.sh
+    - ./integration-test.sh
     - sudo /usr/local/bin/pyclean .
 
 before_script:
