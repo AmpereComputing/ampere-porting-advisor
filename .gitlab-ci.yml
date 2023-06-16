@@ -18,14 +18,18 @@
 default:
   image: ubuntu:apa_ci
 
+cache:
+  paths:
+    - sample-applications/
+  policy: pull
+
 .job_template: &job_configuration  # Hidden yaml configuration that defines an anchor named 'job_configuration'
   tags:
     - apa
   script:
     - ./build.sh
     # an alternative approach is to install and run:
-    - ./unit-test.sh
-    - ./integration-test.sh
+    - ./test.sh
     - sudo /usr/local/bin/pyclean .
 
 before_script:
