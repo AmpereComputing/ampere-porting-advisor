@@ -19,6 +19,7 @@ SPDX-License-Identifier: Apache-2.0
 import os
 import traceback
 from ..reports.error import Error
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 class Scanner:
@@ -94,6 +95,18 @@ class Scanner:
         """
         pass
 
+    def scan_file_entry(self, filename, report, progress_callback=None):
+        """Entry function for multithread filesystem tree scanning.
+        Args:
+            file (str): The file to scan.
+            report (Report): Report to add issues to.
+            progress_callback (function): Optional callback called with file names.
+        """
+        if not Scanner._is_vcs_directory(filename) and self.accepts_file(filename):
+            if progress_callback:
+                progress_callback(filename)
+            self.scan_file(filename, report)
+
     def scan_tree(self, root, report, progress_callback=None):
         """Scans the filesysem tree starting at root for potential porting issues.
 
@@ -102,13 +115,18 @@ class Scanner:
             report (Report): Report to add issues to.
             progress_callback (function): Optional callback called with file names.
         """
-        for dirName, _, fileList in os.walk(root):
-            for fname in fileList:
-                path = os.path.join(dirName, fname)
-                if not Scanner._is_vcs_directory(path) and self.accepts_file(path):
-                    if progress_callback:
-                        progress_callback(path)
-                    self.scan_file(path, report)
+        with ThreadPoolExecutor(4) as executor:
+            for dirName, _, fileList in os.walk(root):
+                files = []
+                reports = []
+                p_cb = []
+                runs = []
+                for fname in fileList:
+                    path = os.path.join(dirName, fname)
+                    files.append(path)
+                    reports.append(report)
+                    p_cb.append(progress_callback)
+                runs.append(executor.map(self.scan_file_entry, files, reports, p_cb))
 
     @staticmethod
     def _is_vcs_directory(path):
