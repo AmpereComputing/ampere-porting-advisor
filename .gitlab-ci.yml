@@ -35,6 +35,7 @@ cache:
 before_script:
   - python3 --version  # For debugging
   - pwd
+  - tree -d sample-applications/
   - sudo /usr/local/bin/pyclean .
 
 merge-request-pipeline-job:
