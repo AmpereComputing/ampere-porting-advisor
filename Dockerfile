@@ -1,20 +1,22 @@
-FROM public.ecr.aws/amazonlinux/amazonlinux:2023 as builder
+FROM ubuntu:22.04 as builder
 
-RUN yum install java-17-amazon-corretto python3.11 python3.11-pip maven binutils -y && \
-    yum clean all
+RUN apt update \
+    && apt install -y python3.11 python3.11-dev python3.11-venv python3-pip openjdk-17-jdk maven binutils \
+    && apt clean
 
-ENV JAVA_HOME=/usr/lib/jvm/java
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 ENV MAVEN_HOME=/usr/share/maven
 
-COPY . .
-RUN /usr/bin/python3.11 -m venv .venv && \
-    source .venv/bin/activate && \
-    python3 -m pip install -r requirements-build.txt && \
-    FILE_NAME=porting-advisor ./build.sh
+COPY . /root/
+SHELL ["/bin/bash", "-c"]
+RUN cd /root/ && /usr/bin/python3.11 -m venv .venv \
+    && source .venv/bin/activate \
+    && python3 -m pip install -r requirements-build.txt \
+    && FILE_NAME=porting-advisor ./build.sh
 
-RUN mv dist/porting-advisor /opt/porting-advisor
+RUN mv /root/dist/porting-advisor /opt/porting-advisor
 
-# Use Amazon Corretto as runtime
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:17-al2023 as runtime
+# Use dry ubuntu 22.04 as runtime
+FROM ubuntu:22.04 as runtime
 COPY --from=builder /opt/porting-advisor /usr/bin/porting-advisor
 ENTRYPOINT ["/usr/bin/porting-advisor"]
