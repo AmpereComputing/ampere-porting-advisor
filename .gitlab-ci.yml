@@ -32,7 +32,8 @@ cache:
 before_script:
   - python3 --version  # For debugging
   - pwd
-  - tree -d sample-applications/
+  - echo "sample-applications" > .dockerignore
+  - sed -i "1 a RUN sed -i 's/ports.ubuntu.com/mirrors.163.com/g' /etc/apt/sources.list" Dockerfile
   - sudo /usr/local/bin/pyclean .
 
 merge-request-pipeline-job:
