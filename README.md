@@ -1,7 +1,7 @@
 Ampere Porting Advisor 
 ======================
 
-This is a fork of [Porting advisor for Graviton](https://github.com/aws/porting-advisor-for-graviton), an open source project from AWS, which in turn is a fork ofthe ARM High Performance Computing group's [Porting advisor](https://github.com/arm-hpc/porting-advisor). Originally, it was coded as a Python module that analyzed known incompatibilities for C and Fortran code.
+This is a fork of the [Porting advisor for Graviton](https://github.com/aws/porting-advisor-for-graviton), an open source project from AWS, which in turn is a fork of the ARM High Performance Computing group's [Porting advisor](https://github.com/arm-hpc/porting-advisor). Originally, it was coded as a Python module that analyzed known incompatibilities for C and Fortran code.
 
  It is a command line tool that analyzes source code for known code patterns and dependency libraries. It then generates a report with any incompatibilities with Ampere's processors. This tool provides suggestions of minimal required and/or recommended versions to run on Ampere processors for both language runtime and dependency libraries. It can be run on non-ARM based machines (like Intel and AMD) and Ampere processors are not required. This tool does not work on binaries, only source code. It does not make any code modifications, it doesn't make API level recommendations, nor does it send data back to Ampere.
 
