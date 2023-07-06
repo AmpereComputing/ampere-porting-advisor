@@ -168,11 +168,11 @@ class TestJavaScaner(unittest.TestCase):
         self.scanner.scan_file_object('main.java', io_object, self.report)
         self.assertEqual(2, len(self.report.remarks))
         self.assertEqual(
-            f'detected java code. min version 8 is required. version 17 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details.',
+            f'detected java code. min version 8 is required. version 17 or above is recommended. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/java.md for more details.',
             self.report.remarks[0].description
         )
         self.assertEqual(
-            f'detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#prebuilt-java-release for more details.',
+            f'detected java code. we recommend using OpenJDK version 17 or above release for aarch64. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/java.md#prebuilt-java-release for more details.',
             self.report.remarks[1].description
         )
 

@@ -179,17 +179,17 @@ Porting Advisor for Ampere Processor v1.0.0
 Report date: 2023-05-10 11:31:52
 
 13 files scanned.
-detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.
+detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/golang.md for more details.
 detected python code. if you need pip, version 19.3 or above is recommended. we detected that you have version 22.3.1
-detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/python.md for more details.
+detected python code. min version 3.7.5 is required. we detected that you have version 3.10.9. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/python.md for more details.
 ./sample-projects/java-samples/pom.xml: dependency library: leveldbjni-all is not supported on Ampere processor.
 ./sample-projects/java-samples/pom.xml: using dependency library snappy-java version 1.1.3. upgrade to at least version 1.1.4
 ./sample-projects/java-samples/pom.xml: using dependency library zstd-jni version 1.1.0. upgrade to at least version 1.2.0
 ./sample-projects/python-samples/incompatible/requirements.txt:3: using dependency library OpenBLAS version 0.3.16. upgrade to at least version 0.3.17
-detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md for more details.
-./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md#building-jar-libraries-manually
+detected go code. min version 1.16 is required. version 1.18 or above is recommended. we detected that you have version 1.19. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/golang.md for more details.
+./sample-projects/java-samples/pom.xml: using dependency library hadoop-lzo. this library requires a manual build  more info at: https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/java.md#building-jar-libraries-manually
 ./sample-projects/python-samples/incompatible/requirements.txt:5: dependency library NumPy is present. min version 1.19.0 is required.
-detected java code. min version 8 is required. version 17 or above is recommended. see https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/java.md for more details.
+detected java code. min version 8 is required. version 17 or above is recommended. see https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/java.md for more details.
 
 Use --output FILENAME.html to generate an HTML report.
 ```
