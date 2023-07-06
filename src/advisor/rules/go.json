@@ -1,7 +1,7 @@
 {
     "languageRules": {
         "name": "Go",
-        "detailsUrl": "https://gitlab.com/AmpereComputing/Performance/tools/ampere-porting-advisor/-/blob/main/doc/golang.md",
+        "detailsUrl": "https://github.com/AmpereComputing/ampere-porting-advisor/blob/main/doc/golang.md",
         "extensions": [".go"],
         "dependencyFiles": ["go.mod"],
         "minVersion": "1.16",
