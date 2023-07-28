@@ -56,7 +56,7 @@ do
 	
     if [ 'git' == $dl_type ]; then
         DL_BRANCH=`jq -r ".$prog_lang.branch" $BASELINE_JSON`
-        [ ! -d "$APP_DIR/$prog_lang/$dl_app" ] && git -C $APP_DIR/$prog_lang clone --branch $DL_BRANCH $dl_url
+        [ ! -d "$APP_DIR/$prog_lang/$dl_app" ] && git -C $APP_DIR/$prog_lang clone --depth 1 --branch $DL_BRANCH $dl_url
     elif [ 'wget' == $dl_type ]; then
         dl_file=$(basename "$dl_url")
         [ ! -f "$APP_DIR/$prog_lang/$dl_file" ] && wget $dl_url -P $APP_DIR/$prog_lang/
