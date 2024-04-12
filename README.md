@@ -5,7 +5,9 @@ This is a fork of the [Porting advisor for Graviton](https://github.com/aws/port
 
  It is a command line tool that analyzes source code for known code patterns and dependency libraries. It then generates a report with any incompatibilities with Ampere's processors. This tool provides suggestions of minimal required and/or recommended versions to run on Ampere processors for both language runtime and dependency libraries. It can be run on non-ARM based machines (like Intel and AMD) and Ampere processors are not required. This tool does not work on binaries, only source code. It does not make any code modifications, it doesn't make API level recommendations, nor does it send data back to Ampere.
 
- This tool scans all files in a source tree, regardless of whether they are included in the build system or not. As such, it may erroneously report issues in files that appear in the source tree but are excluded by the build system. Currently, the tool supports the following languages/dependencies:
+**PLEASE NOTE: Even though we do our best to find known incompatibilities, we still recommend to perform the appropriate tests to your application on an Ampere processor based system before going to Production.**
+
+ This tool scans all files in a source tree, regardless of whether they are included by the build system or not. As such it may erroneously report issues in files that appear in the source tree but are excluded by the build system. Currently, the tool supports the following languages/dependencies:
 
 * Python 3+
     * Python version
