@@ -6,14 +6,15 @@ RUN apt update \
 
 ENV MAVEN_HOME=/usr/share/maven
 
-COPY . /root/
+COPY src src/
+COPY build.sh setup-environment.sh getBinaryName.sh requirements-build.txt ./
 SHELL ["/bin/bash", "-c"]
-RUN cd /root/ && /usr/bin/python3.11 -m venv .venv \
+RUN /usr/bin/python3.11 -m venv .venv \
     && source .venv/bin/activate \
     && python3 -m pip install -r requirements-build.txt \
     && FILE_NAME=porting-advisor ./build.sh
 
-RUN mv /root/dist/porting-advisor /opt/porting-advisor
+RUN mv dist/porting-advisor /opt/porting-advisor
 
 # Use Eclipse Temurin JRE 17 as runtime
 FROM eclipse-temurin:17-jre as runtime
