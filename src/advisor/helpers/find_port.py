@@ -19,6 +19,7 @@ SPDX-License-Identifier: Apache-2.0
 import os
 import re
 from ..constants.arch_strings import AARCH64_ARCHS, NON_AARCH64_ARCHS
+from ..constants.arch_specific_options import ARCH_SPECIFIC_IN_BUILD_FILES
 
 
 def port_filenames(filename):
@@ -105,7 +106,7 @@ def find_port_file(filename, other_files, other_files_dirs=None):
         for file in other_files:
             other_files_dirs.add(os.path.dirname(file))
     port_dir = find_port_dir(head, other_files_dirs)
-    if port_dir:
+    if port_dir and tail not in ARCH_SPECIFIC_IN_BUILD_FILES:
         return os.path.join(port_dir, tail)
     return None
 
