@@ -42,7 +42,7 @@ def port_filenames(filename):
                 filename = ''.join(parts[:i]) + \
                     arm_arch + ''.join(parts[(i + 1):])
                 ret.append(filename)
-        elif part in AARCH64_ARCHS:
+        elif part in AARCH64_ARCHS and filename not in ARCH_SPECIFIC_IN_BUILD_FILES:
             ret.append(filename)
     return ret
 

@@ -26,7 +26,7 @@ class MesonScanner(Scanner):
 
     X86_SPECIFIC_OPTS_RE_PROG = re.compile(r'-m(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in X86_SPECIFIC_OPTS]))
-    ARCH_SPECIFIC_LIBS_RE_PROG = re.compile(r'(?:find_package|find_library)\((%s)' %
+    ARCH_SPECIFIC_LIBS_RE_PROG = re.compile(r'(?:find_library)\(\'(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in ARCH_SPECIFIC_LIBS]))
     NEOVERSE_SPECIFIC_OPTS_RE_PROG = re.compile(r'-m(cpu|tune)=(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in NEOVERSE_SPECIFIC_OPTS]))

@@ -19,11 +19,11 @@ SPDX-License-Identifier: Apache-2.0
 AARCH64_ARCHS = ['arm', 'aarch64', 'arm64', 'neon', 'sve']
 
 NON_AARCH64_ARCHS = ['alpha', 'altivec', 'amd64', 'avx', 'avx512', 'hppa',
-                     'i386', 'i586', 'i686', 'ia64', 'intel', 'intel64', 'ix86',
-                     'm68k', 'microblaze', 'mips', 'nios2', 'otherarch', 'power',
-                     'powerpc', 'powerpc32', 'powerpc64', 'ppc', 'ppc64',
-                     'ppc64le', 's390', 'sh', 'sparc', 'sse', 'sse2', 'sse3',
-                     'tile', 'x64', 'x86', 'x86_64']
+                     'i386', 'i586', 'i686', 'ia64', 'intel', 'intel64', 'ix86', 'loongarch64',
+                     'm68k', 'microblaze', 'mips', 'nios2', 'otherarch', 'penryn', 'power',
+                     'powerpc', 'powerpc32', 'powerpc64', 'ppc', 'ppc64', 'ppc64le', 'riscv64',
+                     'sandybridge', 's390', 'sh', 'sifive_x280', 'sparc', 'sse', 'sse2', 'sse3',
+                     'tile', 'x64', 'x86', 'x86_64', 'zarch', 'zen', 'zen2', 'zen3']
 
 COMPILERS = ['clang', 'cray', 'flang', 'gcc', 'gfortran', 'gnuc', 'gnug', 'ibmcpp', 'ibmxl', 'icc', 'ifort',
              'intel', 'intel_compiler', 'llvm', 'pathscale', 'pgi', 'pgic', 'sunpro', 'xlc', 'xlf']
