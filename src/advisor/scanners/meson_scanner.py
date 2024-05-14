@@ -19,32 +19,26 @@ from ..reports.issues.define_other_arch_issue import DefineOtherArchIssue
 from .scanner import Scanner
 
 
-class CMakeScanner(Scanner):
-    """Scanner that scans CMake"""
+class MesonScanner(Scanner):
+    """Scanner that scans Meson builds"""
 
-    CMAKE_NAMES = ['CMakeLists.txt']
+    MESON_NAMES = ['meson.build']
 
     X86_SPECIFIC_OPTS_RE_PROG = re.compile(r'-m(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in X86_SPECIFIC_OPTS]))
-    ARCH_SPECIFIC_LIBS_RE_PROG = re.compile(r'(?:find_package|find_library)\((%s)' %
+    ARCH_SPECIFIC_LIBS_RE_PROG = re.compile(r'(?:find_library)\(\'(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in ARCH_SPECIFIC_LIBS]))
     NEOVERSE_SPECIFIC_OPTS_RE_PROG = re.compile(r'-m(cpu|tune)=(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in NEOVERSE_SPECIFIC_OPTS]))
     AMPEREONE_SPECIFIC_OPTS_RE_PROG = re.compile(r'-m(cpu|tune)=(%s)' %
                                             '|'.join([(r'%s\b' % x) for x in AMPEREONE_SPECIFIC_OPTS]))
-    OTHER_ARCH_CPU_LINE_RE_PROG = re.compile(r'(?:CMAKE_SYSTEM_PROCESSOR).*(%s)' %
-                                  '|'.join(NON_AARCH64_ARCHS))
-    AARCH64_CPU_LINE_RE_PROG = re.compile(r'(?:CMAKE_SYSTEM_PROCESSOR).*(%s)' %
-                                  '|'.join(AARCH64_ARCHS))
 
     def accepts_file(self, filename):
         basename = os.path.basename(filename)
-        return basename in CMakeScanner.CMAKE_NAMES
+        return basename in MesonScanner.MESON_NAMES
 
     def scan_file_object(self, filename, file, report):
         continuation_parser = ContinuationParser()
-        other_arch_cpu_condition = None
-        seen_aarch64_cpu_condition = False
         seen_neoverse_build_flag = False
         seen_ampere1_build_flag = False
 
@@ -54,35 +48,25 @@ class CMakeScanner(Scanner):
             if not line:
                 continue
 
-            match = CMakeScanner.ARCH_SPECIFIC_LIBS_RE_PROG.search(line)
+            match = MesonScanner.ARCH_SPECIFIC_LIBS_RE_PROG.search(line)
             if match:
                 lib_name = match.group(1)
                 report.add_issue(ArchSpecificLibraryIssue(
                     filename, lineno + 1, lib_name))
-            match = CMakeScanner.X86_SPECIFIC_OPTS_RE_PROG.search(line)
+            match = MesonScanner.X86_SPECIFIC_OPTS_RE_PROG.search(line)
             if match:
                 opt_name = match.group(1)
                 report.add_issue(ArchSpecificBuildOptionIssue(
                     filename, lineno + 1, opt_name))
-            match = CMakeScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search(line)
+            match = MesonScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search(line)
             if match:
-                seen_aarch64_cpu_condition = True
                 seen_neoverse_build_flag = True
                 opt_name = match.group(1)
                 opt_value = match.group(2)
                 report.add_issue(NeoverseSpecificBuildOptionIssue(
                     filename, lineno + 1, opt_name, opt_value))
-            match = CMakeScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search(line)
+            match = MesonScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search(line)
             if match:
-                seen_aarch64_cpu_condition = True
                 seen_ampere1_build_flag = True
-            match = CMakeScanner.OTHER_ARCH_CPU_LINE_RE_PROG.search(line)
-            if match:
-                other_arch_cpu_condition = line
-            match = CMakeScanner.AARCH64_CPU_LINE_RE_PROG.search(line)
-            if match:
-                seen_aarch64_cpu_condition = True
-        if other_arch_cpu_condition and not seen_aarch64_cpu_condition:
-            report.add_issue(DefineOtherArchIssue(filename, lineno + 1, other_arch_cpu_condition))
         if seen_neoverse_build_flag and not seen_ampere1_build_flag:
             report.add_issue(AmpereoneSpecificBuildOptionIssue(filename, lineno + 1))

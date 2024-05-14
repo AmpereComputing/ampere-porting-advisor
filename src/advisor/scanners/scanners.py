@@ -26,6 +26,7 @@ from .go_scanner import GoScanner
 from .java_scanner import JavaScanner
 from .makefile_scanner import MakefileScanner
 from .cmake_scanner import CMakeScanner
+from .meson_scanner import MesonScanner
 from .python_scanner import PythonScanner
 from .source_scanner import SourceScanner
 
@@ -49,7 +50,8 @@ class Scanners:
                         AsmSourceScanner(),
                         ConfigGuessScanner(),
                         MakefileScanner(),
-                        CMakeScanner()]
+                        CMakeScanner(),
+                        MesonScanner()]
         self.filters = [PortFilter()] if filter_ported_code else []
         self.filters += [IssueTypeFilter(issue_type_config),
                          TargetOsFilter(),

@@ -74,3 +74,15 @@ class TestCMakeScanner(unittest.TestCase):
         cmake_scanner.scan_file_object(
             'CMakeLists.txt', io_object, report)
         self.assertEqual(len(report.issues), 1)
+
+    def test_neoverse_specific_opts_line_re(self):
+        match = CMakeScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search('ADD_CXX_FLAGS("-mtune=ampere1a")')
+        self.assertIsNone(match)
+        match = CMakeScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search('ADD_CXX_FLAGS("-mtune=neoverse-n2")')
+        self.assertIsNotNone(match)
+
+    def test_ampereone_specific_opts_line_re(self):
+        match = CMakeScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search('ADD_CXX_FLAGS("-mcpu=neoverse-v2")')
+        self.assertIsNone(match)
+        match = CMakeScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search('ADD_CXX_FLAGS("-mcpu=ampere1b")')
+        self.assertIsNotNone(match)

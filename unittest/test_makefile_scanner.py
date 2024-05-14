@@ -300,3 +300,15 @@ class TestMakefileScanner(unittest.TestCase):
         makefile_scanner.scan_file_object(
             'Makefile', io_object, report)
         self.assertEqual(len(report.issues), 1)
+
+    def test_neoverse_specific_opts_line_re(self):
+        match = MakefileScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search('CFLAGS = -mtune=ampere1a')
+        self.assertIsNone(match)
+        match = MakefileScanner.NEOVERSE_SPECIFIC_OPTS_RE_PROG.search('CFLAGS = -mtune=neoverse-n2')
+        self.assertIsNotNone(match)
+
+    def test_ampereone_specific_opts_line_re(self):
+        match = MakefileScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search('CFLAGS = -mcpu=neoverse-v2')
+        self.assertIsNone(match)
+        match = MakefileScanner.AMPEREONE_SPECIFIC_OPTS_RE_PROG.search('CFLAGS = -mcpu=ampere1b')
+        self.assertIsNotNone(match)
